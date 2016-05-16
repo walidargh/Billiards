@@ -4,63 +4,48 @@ CannonBall is a Billiards-inspired game, that utilizes a handrolled physics engi
 
 The engine utilizes the elasticity of collisions with billiards balls, and accounts for friction and energy loss as a ball rolls on along the table and bounces of off the table rails 
 
+## Gameplay
+
+The game play is relatively simple and straight forward. To shoot using the cue stick users will click and drag back with their mouse. Upon release the cue ball will be hit with cue stick, giving it a velocity that is dependent on how far back they drew their mouse. If the user clicks on the cue ball while it is moving they will be able to active the bomb feature. The cue ball will push all balls away from it and will move in a random direction afterwards. 
+
 ## Features & Implementation
 
 ### Collision Detection 
 
-Collisions are detected using canvas positions 
-
-### Businesses and Reviews
-
-Businesses are managed on a single table on the database. They store the businesses creators user_id, its address, hours and its price. Upon a search or request to view businesses an APi request fetches data for businesses using a query string. The data fetched also returns a featured image, which is found through an Active Record association to the Photos table. This information is maintained in the BusinessStore.
-
-[business-detail]: ./project-proposal/production_pics/business-detail.png
-
-![business-detail]
-
-Upon a user click to see business details a fetch is made for a single business' details in addition to its reviews (through an active record association) and photos. This is used to update the BusinessStore. Images are hosted on the site using Cloudinary.
-
-### Writing Reviews and Making Ratings
-
-Users are able to write reviews for businesses, in addition to rating them using a 5 star scale. This information is used to update the BusinessStore as well as the database, which triggers a rerender and ensures that new reviews and ratings are updated without a refresh. The render will show users a login form if they are not logged in. 
-
-ReviewForm Render:
+Collisions are detected using canvas positions and are calculated using the velocity vectors of the billiard balls. Since the balls all share the same mass, the velocity vectors post collision are calculated as follows: 
 
 ```javascript
-render: function () {
-    return (
-        <div className="review-form-and-button">
-            {this.reviewButton()}
-            {this.reviewForm()}
-            <Modal
-                isOpen={this.state.modalIsOpen}
-                onRequestClose={this.closeModal}
-                style={customStyles}>
-                <LoginForm formType="Log In"/>
-            </Modal>
-        </div>
-    );
+velocityShift: function (velocityA, velocityB, positionA, positionB) {
+    var velocityDiff = Util.subtract(velocityA, velocityB);
+    var positionDiff = Util.subtract(positionA, positionB);
+    var dotProduct = Util.dotProduct(velocityDiff, positionDiff);
+    var positionNorm = Util.norm(positionDiff);     
+    var velocityScale = (dotProduct)/(Math.pow(positionNorm, 2));
+    return Util.scale(positionDiff, velocityScale);
 }
 ```
 
-Users are also able to upload images for each businesses using the  Cloudinary upload widget. The URLs for these images are stored in the database as well as the BusinessStore, which ensures that photo uploads update without a refresh.
+This makes for physically consistent and accurate collisions. Data from the Colorado State University's physics department was use to account for energy loss in cueBall collisions.
 
-### Fuzzy Search
-[search]: ./project-proposal/production_pics/search.png
+```javascript
+var BALL_TABLE_FRICTION = 0.15;
+var BALL_RAIL_RESTITUTION = 0.75;
+var BALL_BALL_RESTITUTION = 0.95;
+```
 
-![search]
+### Exploding CueBall
 
-Businesses are rendered based on information stored in the BusinessStore. Upon typing a query, an API request is made to fetch businesses matching the passed query string. A listener on the search bar ensures that this update occurs on each keystroke. This data is used to update the business store, which triggers a render to the BusinessIndex which generates new results. 
+CannonBall puts a spin on classic Billiards by making the cue ball a live explosive. Upon a click the cue ball pushes the other balls away from the cue ball along a velocity vector with a speed that has an inverse square relation with the ball's distance from the cue ball.
 
+```javascript
+var vectorDiff = Util.subtract(ball.position, cueBall.position);
+var distanceFrom = Util.norm(vectorDiff);
+var scaledVelocity = Util.scale(vectorDiff, Math.pow(1/(distanceFrom), 2));
+ball.velocity = Util.scale(scaledVelocity, 2000*Math.random());
+```
 
-## Future Directions for the Project
+## Future Features
 
-In addition to the aformentioned features, I plan to continue to implement features that will improve the performance of Howler as well as enrich the user experience. 
+Future features include additional weapon configurations for the cueball. One possible configuration is a sniper option where users can click on the ball they wish to hit. This ensures that the user hits their target, but they still will have to account for the angle that they hit the ball. 
 
-### Taggings
-
-This feature will allow users to tag businesses. I plan to use these taggings to implement filter features similar to how my search filters according to a query string. I will use Active Record Associations to a tags table in order to handle this on the backend. 
-
-### User Recommendations
-
-Using user data (types of businesses reviewed, businesses the user rated highly, etc.) I will provide users with suggestions. My plan is to use taggings to identify the types of businesses users prefer and generate a rank for the businesses in my database (filtered by near user location).
+Another future feature is implemented consequences for missing a ball while using a weapon. This may include introducing more balls into play or increasing the table friction for a limited period of time.
