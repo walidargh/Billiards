@@ -35,7 +35,7 @@ var BALL_BALL_RESTITUTION = 0.95;
 
 ### Exploding CueBall
 
-CannonBall puts a spin on classic Billiards by making the cue ball a live explosive. Upon a click the cue ball pushes the other balls away from the cue ball along a velocity vector with a speed that is inversely proportional to ball's distance from the cue ball.
+CannonBall puts a spin on classic Billiards by making the cue ball a live explosive. Upon a click the cue ball pushes the other balls away from the cue ball along a velocity vector with a speed that has an inverse square relation with the ball's distance from the cue ball.
 
 ```javascript
 var vectorDiff = Util.subtract(ball.position, cueBall.position);
@@ -43,7 +43,6 @@ var distanceFrom = Util.norm(vectorDiff);
 var scaledVelocity = Util.scale(vectorDiff, Math.pow(1/(distanceFrom), 2));
 ball.velocity = Util.scale(scaledVelocity, 2000*Math.random());
 ```
-
 
 ## Future Features
 
