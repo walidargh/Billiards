@@ -1,7 +1,11 @@
-#canvas{
+/*#canvas{
 	margin-left: auto;
 	margin-right: auto;
-	/*border: 3px solid black;*/
-	/*border-radius: 20px;*/
-	/*background-color: #644321;*/
-}
+	overflow: none;
+	border: 3px solid black;
+	border-radius: 20px;
+	background-color: #644321;
+}*/
+
+.icon-glass:before                { content: "\ff1e2"; }
+.icon-music:before                { content: "\ff1e2"; }
