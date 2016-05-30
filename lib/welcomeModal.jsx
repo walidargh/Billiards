@@ -20,7 +20,9 @@ var customStyles = {
     outline								: '#ccc',
     borderRadius          : '10px',
     transform             : 'translate(-50%, -50%)',
-    width 								: '80%'
+    background        		: 'url(https://s3-us-west-1.amazonaws.com/owlhowler/howler/arches.png)',
+    width 								: '80%',
+    height								: '80%'
   }
 };
 
