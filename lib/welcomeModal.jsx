@@ -20,6 +20,7 @@ var customStyles = {
     outline								: '#ccc',
     borderRadius          : '10px',
     transform             : 'translate(-50%, -50%)',
+    width 								: '80%'
   }
 };
 
@@ -41,9 +42,10 @@ var welcomeModal = React.createClass({
 	nextSlide: function () {
 		var nextSlideNumber = this.state.slideNumber + 1;	
 		nextSlideNumber = 
-			nextSlideNumber > this.state.totalSlides ? 1 : nextSlideNumber;
-		console.log(nextSlideNumber);
-		this.setState({slideNumber: nextSlideNumber});
+			nextSlideNumber > this.state.totalSlides ? null : nextSlideNumber;
+
+		nextSlideNumber ? 
+			this.setState({slideNumber: nextSlideNumber}) : this.closeModal();
 	},
 
 	previousSlide: function () {
@@ -55,8 +57,8 @@ var welcomeModal = React.createClass({
 
 	slideOne: function () {
 		return (
-			<div className="slick-item-1">
-				<h1>Welcome to CanonBall</h1>
+			<div className="slick-item">
+				<h1>WELCOME TO CANONBALL</h1>
 				<p>Your goal is to pocket all the balls except the cue ball, which will result in an automatic loss</p>
 				<img src="https://s3-us-west-1.amazonaws.com/owlhowler/howler/cueball.png"/>
 			</div>	
@@ -65,11 +67,11 @@ var welcomeModal = React.createClass({
 
 	slideTwo: function () {
 		return (
-			<div className="slick-item-2">
-				<h1>Game Mechanics</h1>
+			<div className="slick-item">
+				<h1>GAME MECHANICS</h1>
 				<p>Drag the cue back with your mouse and release to strike the cueball</p>
 				<p>The further you pull back the harder it will strike!</p>
-				<img src="https://s3-us-west-1.amazonaws.com/owlhowler/howler/cueball.png"/>
+				<img src="https://s3-us-west-1.amazonaws.com/owlhowler/howler/cuestrike.png"/>
 			</div>
 		)	;
 	},
@@ -77,10 +79,11 @@ var welcomeModal = React.createClass({
 	slideThree: function () {
 		return (
 			<div className="slick-item">
-				<h1>Canonballing</h1>
-				<p>If you click the cue ball while it is still moving to active the Canon Ball!</p>
-				<p>Be careful the ball will behave unpredictably! But if timed well it can have excellent results</p>
+				<h1>CANNONBALLING</h1>
+				<p>If you click the cue ball while it is still moving to activate a canonball!</p>
+				<p>Be careful the ball will behave unpredictably! But if timed well it can have explosive results</p>
 				<p>You will have three canonballs, use them wisely</p>
+				<img src="https://s3-us-west-1.amazonaws.com/owlhowler/howler/cannonball.png" />
 			</div>
 		);
 	},

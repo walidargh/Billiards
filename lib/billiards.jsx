@@ -12,7 +12,7 @@ var startGame = function (ctx) {
 document.addEventListener("DOMContentLoaded", function () {
 	var canvasEl = document.getElementById("canvas");
 	canvasEl.width = Game.DIM_X + 400;
-	canvasEl.height  = Game.DIM_Y + 400;
+	canvasEl.height  = Game.DIM_Y + 200;
 	var ctx = canvasEl.getContext("2d");
 	ReactDOM.render(<Modal startGame={startGame.bind(this, ctx)} />, canvasEl);
 });

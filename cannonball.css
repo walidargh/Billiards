@@ -7,8 +7,18 @@
 	background-color: #644321;
 }*/
 
+
+p {
+	margin: 0;
+	padding: 0;
+}
 body {
 	background: url("https://s3-us-west-1.amazonaws.com/owlhowler/howler/retina_wood.png");
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 1265;
+	height: 632.5;
 	/*overflow: hidden;*/
 }
 
@@ -18,6 +28,29 @@ body {
 	align-items: center;
 	justify-content: space-around;
 	width: 100%;
+}
+
+.slick-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: 'Roboto';
+	padding: 0.5m;
+}
+
+.slick-item img {
+	max-width: 90%;
+	padding: 10px;
+}
+
+.slick-item h1 {
+	align-self: center;
+	font-size: 24px
+}
+
+.slick-item p {
+	align-self: flex-start;
+	padding: 10px;
 }
 
 .previous-slide{
@@ -30,6 +63,14 @@ body {
 	margin: 20px;
 	padding: 10px;
 	border: 1px solid black;
+}
+
+button {
+	font-family: 'Roboto';
+	font-size: 20px;
+	color: white;
+	background: rgba(0, 0, 0, 0.9);
+	width: 150px;
 }
 
 .icon-glass:before                { content: "\ff1e2"; }
