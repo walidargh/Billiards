@@ -18,7 +18,9 @@ body {
 	align-items: center;
 	justify-content: center;
 	width: 1265;
-	height: 632.5;
+	height: 632;
+	padding: 0;
+	margin: 0;
 	/*overflow: hidden;*/
 }
 
