@@ -1,0 +1,26 @@
+{
+  "name": "Billiards",
+  "version": "1.0.0",
+  "description": "CannonBall is a Billiards-inspired game, that utilizes a handrolled physics engine.",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walidargh/Billiards.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/walidargh/Billiards/issues"
+  },
+  "homepage": "https://github.com/walidargh/Billiards#readme",
+  "dependencies": {
+    "babel-core": "^6.9.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-react": "^6.5.0",
+    "webpack": "^1.13.1"
+  }
+}

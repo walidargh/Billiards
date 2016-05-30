@@ -7,5 +7,30 @@
 	background-color: #644321;
 }*/
 
+body {
+	background: url("https://s3-us-west-1.amazonaws.com/owlhowler/howler/retina_wood.png");
+	/*overflow: hidden;*/
+}
+
+.slick-track {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	width: 100%;
+}
+
+.previous-slide{
+	margin: 20px;
+	padding: 10px;
+	border: 1px solid black;
+}
+
+.next-slide{
+	margin: 20px;
+	padding: 10px;
+	border: 1px solid black;
+}
+
 .icon-glass:before                { content: "\ff1e2"; }
 .icon-music:before                { content: "\ff1e2"; }
