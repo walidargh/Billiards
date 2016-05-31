@@ -21,8 +21,8 @@ var customStyles = {
     borderRadius          : '10px',
     transform             : 'translate(-50%, -50%)',
     background        		: 'url(https://s3-us-west-1.amazonaws.com/owlhowler/howler/arches.png)',
-    width 								: '80%',
-    height								: '80%'
+    width 								: '85%',
+    height								: '85%'
   }
 };
 
@@ -60,7 +60,7 @@ var welcomeModal = React.createClass({
 	slideOne: function () {
 		return (
 			<div className="slick-item">
-				<h1>WELCOME TO CANONBALL</h1>
+				<h1>Welcome to Cannon Ball</h1>
 				<p>Your goal is to pocket all the balls except the cue ball, which will result in an automatic loss</p>
 				<img src="https://s3-us-west-1.amazonaws.com/owlhowler/howler/cueball.png"/>
 			</div>	
@@ -70,10 +70,10 @@ var welcomeModal = React.createClass({
 	slideTwo: function () {
 		return (
 			<div className="slick-item">
-				<h1>GAME MECHANICS</h1>
+				<h2>Game Mechanics</h2>
 				<p>Drag the cue back with your mouse and release to strike the cueball</p>
 				<p>The further you pull back the harder it will strike!</p>
-				<img src="https://s3-us-west-1.amazonaws.com/owlhowler/howler/cuestrike.png"/>
+				<img style={{borderRadius: 0}}src="https://s3-us-west-1.amazonaws.com/owlhowler/howler/cuestrike.png"/>
 			</div>
 		)	;
 	},
@@ -81,7 +81,7 @@ var welcomeModal = React.createClass({
 	slideThree: function () {
 		return (
 			<div className="slick-item">
-				<h1>CANNONBALLING</h1>
+				<h2>Canon-Balling</h2>
 				<p>If you click the cue ball while it is still moving to activate a canonball!</p>
 				<p>Be careful the ball will behave unpredictably! But if timed well it can have explosive results</p>
 				<p>You will have three canonballs, use them wisely</p>
