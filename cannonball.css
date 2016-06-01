@@ -12,6 +12,7 @@ p, body, h1, h2 {
 	margin: 0;
 	padding: 0;
 }
+
 body {
 	background: url("https://s3-us-west-1.amazonaws.com/owlhowler/howler/retina_wood.png");
 	display: flex;
@@ -86,5 +87,4 @@ button {
 	color: white;
 	background: rgba(0, 0, 0, 0.7);
 	width: 100px;
-
 }
