@@ -61,7 +61,7 @@ var welcomeModal = React.createClass({
 		return (
 			<div className="slick-item">
 				<h1>Welcome to Cannon Ball</h1>
-				<p>Your goal is to pocket all the balls except the cue ball, which will result in an automatic loss</p>
+				<p>Your goal is to pocket all the balls except the cue ball, which will result in an automatic loss.</p>
 				<img src="https://s3-us-west-1.amazonaws.com/owlhowler/howler/cueball.png"/>
 			</div>	
 		);
@@ -71,7 +71,7 @@ var welcomeModal = React.createClass({
 		return (
 			<div className="slick-item">
 				<h2>Game Mechanics</h2>
-				<p>Drag the cue back with your mouse and release to strike the cueball</p>
+				<p>Drag the cue back with your mouse and release to strike the cueball.</p>
 				<p>The further you pull back the harder it will strike!</p>
 				<img style={{borderRadius: 0}}src="https://s3-us-west-1.amazonaws.com/owlhowler/howler/cuestrike.png"/>
 			</div>
@@ -81,10 +81,10 @@ var welcomeModal = React.createClass({
 	slideThree: function () {
 		return (
 			<div className="slick-item">
-				<h2>Canon-Balling</h2>
-				<p>If you click the cue ball while it is still moving to activate a canonball!</p>
-				<p>Be careful the ball will behave unpredictably! But if timed well it can have explosive results</p>
-				<p>You will have three canonballs, use them wisely</p>
+				<h2>Cannon-Balling</h2>
+				<p>If you click the cue ball while it is still moving to activate a cannonball!</p>
+				<p>Be careful the ball will behave unpredictably! But if timed well it can have explosive results.</p>
+				<p>You will have three cannonballs, use them wisely.</p>
 				<img src="https://s3-us-west-1.amazonaws.com/owlhowler/howler/cannonball.png" />
 			</div>
 		);
